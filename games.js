@@ -16,3 +16,7 @@ export function testIframe() {
 
     console.log('Iframe injected via external JS');
 }
+
+export function consoleTest() {
+    console.log("hello world");
+}
