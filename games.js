@@ -1,26 +1,18 @@
-(() => {
-  const canvas = document.getElementById("game");
-  const ctx = canvas.getContext("2d");
+// games.js test: dynamically add an iframe
+export function testIframe() {
+    const container = document.getElementById('iframe-container');
+    if (!container) {
+        console.error('No iframe container found');
+        return;
+    }
 
-  let x = 200;
-  let y = 200;
-  let dx = 2;
-  let dy = 2;
+    const iframe = document.createElement('iframe');
+    iframe.src = 'https://example.com'; // any safe site
+    iframe.width = '300';
+    iframe.height = '200';
+    iframe.style.border = '2px solid red';
 
-  function loop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    container.appendChild(iframe);
 
-    ctx.fillStyle = "#00bcd4";
-    ctx.fillRect(x, y, 20, 20);
-
-    x += dx;
-    y += dy;
-
-    if (x <= 0 || x >= canvas.width - 20) dx *= -1;
-    if (y <= 0 || y >= canvas.height - 20) dy *= -1;
-
-    requestAnimationFrame(loop);
-  }
-
-  loop();
-})();
+    console.log('Iframe injected via external JS');
+}
